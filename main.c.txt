@@ -1,0 +1,867 @@
+/file header
+
+#include <iostream.h>
+
+#include <conio.h>
+
+#include <fstream.h>
+
+#include <iomanip.h>
+
+#include <stdlib.h>
+
+#include <stdio.h>
+
+#define MAX 100
+
+
+
+Dalam perogram  ini menggunakan struck yang terdiri dari dua variabel integer (int), dan sisanya menggunakan character (char) yang dengan jumlah arry semunya 100.
+
+typedef struct ktp
+
+{
+
+int nik;
+
+char sk[MAX],ttl[MAX],jk[MAX],rt[MAX],rw[MAX],desa[MAX],kecamatan[MAX],
+
+agama[MAX],pekerjaan[MAX],gd[MAX],nama[MAX],almt[MAX],kab[MAX],bts[MAX];
+
+int requestsn;
+
+}
+
+ktp;
+
+program ini terdiri dari tiga fungsi yaitu seperti yang tertulis di listing program.
+
+dan program di jalankan di fungsi utama (int main) denagan menampilkan menu utama.
+
+
+
+//inisialisasi fungsi
+
+void kedip();
+
+void selamat();
+
+int main()
+
+{
+
+int pilihan;
+
+ktp stu;
+
+selamat();
+
+do
+
+{
+
+clrscr();
+
+system ("Color 9a");
+
+system("cls");
+
+cout << "\n\n";
+
+cout << "\t\t **********************************************\n";
+
+cout << "\t\t****************    **    *********************\n";
+
+cout << "\t\t*             **          **                 **\n";
+
+cout << "\t\t*       **       PROGRAM       **            **\n";
+
+cout << "\t\t*  **      KARTU TANDA PENDUDUK       **     **\n";
+
+cout << "\t\t**    CREATED BY:                           ***\n";
+
+cout << "\t\t*  **      MUQADDAS (110533430621)    **     **\n";
+
+cout << "\t\t*       ** PRAMETYA (110533430611)**         **\n";
+
+cout << "\t\t*             **          **                 **\n";
+
+cout << "\t\t****************    **    ********************\n";
+
+cout << "\n\n";
+
+cout << " \t##                    ##" << endl;
+
+cout << " \t************************" << endl;
+
+cout << " \t**[1] Data Baru       **" << endl;
+
+cout << " \t**[2] Tampilkan Data  **" << endl;
+
+cout << " \t**[3] Edit Data       **" << endl;
+
+cout << " \t**[4] Exit            **" << endl;
+
+cout << " \t************************" << endl;
+
+cout << " \t##                    ##" << endl;
+
+cout << " \t\t\t\t\t\tmasukkan pilihan = ";
+
+cin >> pilihan;
+
+
+
+jika user memilih 1 (input data) maka program secara otomatis meminta untuk di isi nik, jika nik di isi selain integer maka program akan menampilkan pesan dan program akan di akhiri, jika nik benar atau integer
+
+maka perogram akan  minta mengisi lengkap biodata penduduk yang bersangkutan dan program akan menyimpan data yang sudah di masukkan dan looping ke menu utama.
+
+
+
+if (pilihan == 1)
+
+{
+
+system ("Color 3f");
+
+system("cls");
+
+cout << "\n\t\t  ccccccccccccccccccccccccccccccccc";
+
+cout << "\n\t\t cccccccccccccccccccccccccccccccccc";
+
+cout << "\n\t\tccccccccccccccccccccccccccccccccccc";
+
+cout << "\n\t\tc                               ccc";
+
+cout << "\n\t\tc      KARTU TANDA PENDUDUK     ccc";
+
+cout << "\n\t\tc       REPUBLIK INDONESIA      ccc";
+
+cout << "\n\t\tc                               cc";
+
+cout << "\n\t\tccccccccccccccccccccccccccccccccc";
+
+cout << "\n\n\t\tMASUKKAN DATA DENGAN BENAR";
+
+cout << "\nNIK : ";
+
+cin.ignore();
+
+cin >> stu.nik;
+
+       if (cin.fail())
+
+    {
+
+        cout << "DATA TIDAK VALID" << endl;
+
+        cout << "Program Akan Di Tutup silahkan masuk lagi!" << endl;
+
+        cin.clear();
+
+        getch();
+
+        exit(0);
+
+    }
+
+
+
+cout << endl;
+
+cout << "Nama          : ";
+
+cin.ignore();
+
+cin.getline(stu.nama,MAX);
+
+cout << endl;
+
+cout << "Ttl           : ";
+
+cin.getline(stu.ttl,MAX);
+
+cout << endl;
+
+cout << "Alamat        : ";
+
+cin.getline(stu.almt,MAX);
+
+cout << endl;
+
+cout << "  Rt/rw       : ";
+
+cin.getline(stu.rt,MAX);
+
+cout << endl;
+
+cout << "  Desa        : ";
+
+cin.getline(stu.desa,MAX);
+
+cout << endl;
+
+cout << "kecamatan     : ";
+
+cin.getline(stu.kecamatan,MAX);
+
+cout << endl;
+
+cout << "Kabupaten     : ";
+
+cin.getline(stu.kab,MAX);
+
+cout << endl;
+
+cout << "Agama         : ";
+
+cin.getline(stu.agama,MAX);
+
+cout << endl;
+
+cout << "Jenis kelamin : ";
+
+cin.getline(stu.jk,MAX);
+
+cout << endl;
+
+cout << "Golongan Darah: ";
+
+cin.getline(stu.gd,MAX);
+
+cout << endl;
+
+cout << "Status perkawinan: ";
+
+cin.getline(stu.sk,MAX);
+
+cout << endl;
+
+cout << "Pekerjaan     : ";
+
+cin.getline(stu.pekerjaan,MAX);
+
+cout << endl;
+
+cout << "Batas Berlaku : ";
+
+cin.getline(stu.bts,MAX);
+
+cout << endl;
+
+
+
+
+
+ofstream outfile;
+
+outfile.open("ktp.txt",ios::app);
+
+
+
+
+
+outfile << setprecision(20)<<stu.nik << endl;
+
+outfile << stu.nama << endl;
+
+outfile << stu.ttl << endl
+
+outfile << stu.almt << endl;
+
+outfile << stu.rt << endl;
+
+outfile << stu.desa << endl;
+
+outfile << stu.kecamatan << endl;
+
+outfile << stu.kab << endl;
+
+outfile << stu.agama << endl;
+
+outfile << stu.jk << endl;
+
+outfile << stu.gd << endl;
+
+outfile << stu.sk << endl;
+
+outfile << stu.pekerjaan << endl;
+
+outfile << stu.bts << endl;
+
+outfile.close();
+
+kedip();
+
+getch();
+
+}
+
+
+
+Jika user memilih menu 2 (Tampil Data) maka perogram akan meminta user untuk memasukkan nik dan program akan check di data base jika di data base nik  tersebut ada maka program akan menampilkan biodata sesuai nik dan jika tidak ada maka program akan  menampilkan  pesan “Data Tidak Ada” dan program  akan looping kemenu utama 
+
+if (pilihan == 2)
+
+{
+
+clrscr();
+
+system ("Color 5e");
+
+system("cls");
+
+cout << "\n\t\tsilahkan masukkan nik : ";
+
+cin >> stu.requestsn;
+
+
+
+ifstream infile;
+
+infile.open("ktp.txt");
+
+
+
+
+
+while(!infile.eof() && infile != '\0')
+
+
+
+{
+
+infile >> stu.nik;
+
+infile.ignore();
+
+infile.getline(stu.nama,MAX);
+
+infile.getline(stu.ttl,MAX);
+
+infile.getline(stu.almt,MAX);
+
+infile.getline(stu.rt,MAX);
+
+infile.getline(stu.desa,MAX);
+
+infile.getline(stu.kecamatan,MAX);
+
+infile.getline(stu.kab,MAX);
+
+infile.getline(stu.agama,MAX);
+
+infile.getline(stu.jk,MAX);
+
+infile.getline(stu.gd,MAX);
+
+infile.getline(stu.sk,MAX);
+
+infile.getline(stu.pekerjaan,MAX);
+
+infile.getline(stu.bts,MAX);
+
+if(stu.requestsn==stu.nik)
+
+
+
+{
+
+cout << "\t__________________________________________________\n";
+
+cout << "\t|              Kartu Tanda Penduduk               |\n";
+
+cout << "\t|               REPUBLIK INDONESIA                |\n";
+
+cout << "\t|_________________________________________________|\n\n";
+
+cout << "\t|NIK               : ";
+
+cout << setprecision(20)<<stu.nik<<endl;
+
+cout << "\t|Nama              : ";
+
+cout << stu.nama<<endl;
+
+cout << "\t|Ttl               : ";
+
+cout << stu.ttl<<endl;
+
+cout << "\t|Alamat            : ";
+
+cout << stu.almt<<endl;
+
+cout << "\t|Rt/rw             : ";
+
+cout << stu.rt<<endl;
+
+cout << "\t|Desa              : ";
+
+cout << stu.desa <<endl;
+
+cout << "\t|Kecamatan         : ";
+
+cout << stu.kecamatan <<endl;
+
+cout << "\t|Kabupaten         : ";
+
+cout << stu.kab <<endl;
+
+cout << "\t|Agama             : ";
+
+cout << stu.agama <<endl;
+
+cout << "\t|Jenis kelamin     : ";
+
+cout << stu.jk <<endl;
+
+cout << "\t|Golongan Darah    : ";
+
+cout << stu.gd <<endl;
+
+cout << "\t|Status perkawinan : ";
+
+cout << stu.sk <<endl;
+
+cout << "\t|Pekerjaan         : ";
+
+cout << stu.pekerjaan <<endl;
+
+cout << "\t|Batas Berlaku     : ";
+
+cout << stu.bts <<endl;
+
+cout << "\t___________________________________________________";
+
+cout << endl;
+
+break;
+
+}
+
+if(infile.eof() && stu.nik != stu.requestsn)
+
+{
+
+cout << "Data tidak ada " << endl;
+
+}
+
+}
+
+
+
+infile.close();
+
+cout << "\t\t";
+
+kedip();
+
+getch();
+
+
+
+}
+
+
+
+Jika user memilih menu 3 (edit) maka progam meminta untuk di isi nik dan program akan check di data base, jika nik ada maka program akan menampilkan biodata sesuai nik dan meminta untuk imput data yang benar dan mereplace data yang ada di data base sesuai dengan nik jika tidak ada maka akan menampilkan pesan “Data Tidak Ada” dan program akan looping ke menu utama.
+
+
+
+if (pilihan == 3)
+
+{
+
+clrscr();
+
+system ("Color ed");
+
+system("cls");
+
+cout << "\n\t\t_____________________________\n";
+
+cout << "\t\tMasukkan NIK : ";
+
+cin >> stu.requestsn;
+
+cout << "\t\t______________________________\n\n";
+
+
+
+
+
+ifstream infile;
+
+infile.open("ktp.txt");
+
+
+
+
+
+while(!infile.eof() && infile != '\0')
+
+{
+
+infile >> stu.nik;
+
+infile.ignore();
+
+infile.getline(stu.nama,MAX);
+
+infile.getline(stu.ttl,MAX);
+
+infile.getline(stu.almt,MAX);
+
+infile.getline(stu.rt,MAX);
+
+infile.getline(stu.desa,MAX);
+
+infile.getline(stu.kecamatan,MAX);
+
+infile.getline(stu.kab,MAX);
+
+infile.getline(stu.agama,MAX);
+
+infile.getline(stu.jk,MAX);
+
+infile.getline(stu.gd,MAX);
+
+infile.getline(stu.sk,MAX);
+
+infile.getline(stu.pekerjaan,MAX);
+
+infile.getline(stu.bts,MAX);
+
+if(stu.requestsn==stu.nik)
+
+{
+
+cout << "NIK               : ";
+
+cout << setprecision(20)<<stu.nik << endl;
+
+cout << "Nama              : ";
+
+cout << stu.nama << endl;
+
+cout << "Ttl               : ";
+
+cout << stu.ttl  << endl;
+
+cout << "Alamat            : ";
+
+cout << stu.almt << endl;
+
+cout << "Rt/rw             : ";
+
+cout << stu.rt << endl;
+
+cout << "Desa              : ";
+
+cout << stu.desa << endl;
+
+cout << "Kecamatan         : ";
+
+cout << stu.kecamatan << endl;
+
+cout << "Kabupaten         : ";
+
+cout << stu.kab << endl;
+
+cout << "Agama             : ";
+
+cout << stu.agama << endl;
+
+cout << "Jenis kelamin     : ";
+
+cout << stu.jk << endl;
+
+cout << "Golongan Darah    : ";
+
+cout << stu.gd << endl;
+
+cout << "Status perkawinan : ";
+
+cout << stu.sk << endl;
+
+cout << "Pekerjaan         : ";
+
+cout << stu.pekerjaan << endl;
+
+cout << "Batas Berlaku     : ";
+
+cout << stu.bts << endl;
+
+break;
+
+}
+
+}
+
+cout << "\n\t\t-------MASUKKAN DATA YANG BENAR-------- " << endl ;
+
+cout << "NIK : ";
+
+cin.ignore();
+
+cin >> stu.nik;
+
+       if (cin.fail())
+
+    {
+
+        cout << "DATA TIDAK VALID" << endl;
+
+        cout << "Program Akan Di Tutup silahkan masuk lagi!" << endl;
+
+        cin.clear();
+
+        getch();
+
+        exit(0);
+
+    }
+
+cout << endl;
+
+cout << "Nama  : ";
+
+cin.ignore();
+
+cin.getline(stu.nama,MAX);
+
+cout << endl;
+
+cout << "Ttl : ";
+
+cin.getline(stu.ttl,MAX);
+
+cout << endl;
+
+cout << "Alamat :";
+
+cin.getline(stu.almt,MAX);
+
+cout << endl;
+
+cout << " Rt/rw: ";
+
+cin.getline(stu.rt,MAX);
+
+cout << endl;
+
+cout << "Desa: ";
+
+cin.getline(stu.desa,MAX);
+
+cout << endl;
+
+cout << "Kecamatan : ";
+
+cin.getline(stu.kecamatan,MAX);
+
+cout << endl;
+
+cout << "Kabupaten :";
+
+cin.getline(stu.kab,MAX);
+
+cout << endl;
+
+cout << "Agama: ";
+
+cin.getline(stu.agama,MAX);
+
+cout << endl;
+
+cout << "Jenis kelamin: ";
+
+cin.getline(stu.jk,MAX);
+
+cout << endl;
+
+cout << "Golongan Darah: ";
+
+cin.getline(stu.gd,MAX);
+
+cout << endl;
+
+cout << "Status perkawinan: ";
+
+cin.getline(stu.sk,MAX);
+
+cout << endl;
+
+cout << "Pekerjaan: ";
+
+cin.getline(stu.pekerjaan,MAX);
+
+cout << endl;
+
+cout << "Batas Berlaku : ";
+
+cin.getline(stu.bts,MAX);
+
+cout << endl;
+
+
+
+
+
+ofstream outfile;
+
+outfile.open("ktp.txt",ios::trunc);
+
+
+
+
+
+
+
+outfile << setprecision(20)<<stu.nik << endl;
+
+outfile << stu.nama << endl;
+
+outfile << stu.ttl << endl;
+
+outfile << stu.almt << endl;
+
+outfile << stu.rt << endl;
+
+outfile << stu.desa << endl;
+
+outfile << stu.kecamatan << endl;
+
+outfile << stu.kab << endl;
+
+outfile << stu.agama << endl;
+
+outfile << stu.jk << endl;
+
+outfile << stu.gd << endl;
+
+outfile << stu.sk << endl;
+
+outfile << stu.pekerjaan << endl;
+
+outfile << stu.bts << endl;
+
+
+
+
+
+
+
+if(infile.eof() && stu.nik != stu.requestsn)
+
+{
+
+cout << "Data tidak ada " << endl;
+
+}
+
+
+
+
+
+infile.close();
+
+kedip();
+
+getch();
+
+
+
+}
+
+}while (pilihan!=4);
+
+
+
+if (pilihan == 4)
+
+{
+
+cout << "\n\n\n\n\n\t\t\tTERIMA KASIH !";
+
+cout << "\n\t\tTELAH MENGGUNAKAN PROGRAM KTP";
+
+}
+
+getch();
+
+}
+
+
+
+void kedip()
+
+{
+
+int i;
+
+double j;
+
+char kalimat[]="Tekan sembarang tombol untuk melanjutkan ....";
+
+for ( i=0;kalimat[i]!=NULL;i++)
+
+{
+
+printf("%c",kalimat[i]);
+
+for (j=0;j<=9990000;j++)
+
+{
+
+}
+
+}
+
+}
+
+
+
+
+
+void selamat()
+
+{
+
+int a=0;
+
+int i;
+
+double j;
+
+system("color e5");
+
+system("cls");
+
+char kalimat[]="\n\n\n\n\n\t\t\t\tSELAMAT DATANG \n\t\t\tdi BAHASA PEMROGRAMAN C++ \n\t\t\tPROGRAM KARTU TANDA PENDUDUK (KTP)\n\t\t\t\tS1 PTI D 2011";
+
+printf("\n\n\n");
+
+while(a!=1){
+
+a++;
+
+clrscr();
+
+for ( i=0;kalimat[i]!=NULL;i++)
+
+{
+
+printf("%c",kalimat[i]);
+
+for (j=0;j<=9990000;j++)
+
+{
+
+}
+
+}
+
+}
